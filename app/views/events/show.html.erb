@@ -1,0 +1,32 @@
+<div class="container my-5">
+        <div class="row">
+        <div class="col-4">
+    </div>
+        <div class="col-4">
+<div class="card text-center bg-light">
+  <div class="card-header">
+    👉 EVENT 👈
+  </div>
+  <div class="card-body">
+    <h5 class="card-title font-size large"><%= Event.find(params[:id]).title %> </h5>
+    <h5 class="card-title font-size: 10px"><%= Event.find(params[:id]).description %></h5>
+    <h5 class="card-title font-size: 10px">Price: <%= Event.find(params[:id]).price %> $</h5>
+    <% if current_user == Event.find(params[:id]).admin %>
+    <% print %>
+    <h6 class="card-title font-size: 10px">Created by: You</h6>
+    <% else %>
+    <h5 class="card-title font-size small">Created by: <%= Event.find(params[:id]).admin.first_name %></h5>
+    <% end %><br>
+    <h5 class="card-title font-size: 10px">Where?: <%= Event.find(params[:id]).location %>
+     <h5 classe="card-title font-size: 10px">Attandees: <%= Attendence.where(event_id:(params[:id])).count %></h5>
+    <h6 class="card-title font-size: 10px"><%= Event.find(params[:id]).created_at %></h6>
+    <% if current_user != Event.find(params[:id]).admin %>
+    <%= link_to "JOIN THE EVENT !", new_event_attendence_path(params[:id]), :class => "btn btn-outline-info" %>
+    <% else %>
+    <%= link_to "EDIT YOUR EVENT", edit_event_path(params[:id]), :class => "btn btn-outline-info" %>
+    <% end %>
+  </div>
+  <div class="card-footer text-muted">
+   <div class="col-4">
+  </div>
+</div>

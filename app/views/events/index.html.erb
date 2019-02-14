@@ -1,0 +1,16 @@
+<main role="main">
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-10">
+        <% Event.all.each do |event| %>
+        <h2>Title: <%= event.title %></h2>
+        <p>Descrition: <%= event.description %></p>
+        <p>When: <%= event.start_date %></p>
+        <p><a class="btn btn-dark" <%= link_to "View more", event_path(event.id) %> &raquo;</a></p>
+        <% end %>
+    </div>
+  </div> <!-- /container -->
+</main>
+
+

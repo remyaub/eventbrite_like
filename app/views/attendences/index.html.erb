@@ -1,0 +1,21 @@
+<div class="container my-5">
+        <div class="row">
+        <div class="col-4">
+    </div>
+        <div class="col-4">
+<div class="card text-center bg-light">
+  <div class="card-header">
+    👉 YOUR EVENT 👈
+  </div>
+<div class="card-body">
+    <h5 class="card-title font-size large"><%= @event.title %> </h5>
+    <h5 class="card-title font-size: 10px"><%= @event.description %></h5>
+    <h5 class="card-title font-size: 10px">Price: <%= @event.price %> $</h5>
+    <h5 class="card-title font-size small">Creator: <%= @current_user.first_name %></h5>
+    <h5 class="card-title font-size: 10px">Where?: <%= @event.location %>
+    <h5 classe="card-title font-size: 10px">Attandees: <%= Attendence.where(event_id:(params[:id])).count %></h5>
+    <h6 class="card-title font-size: 10px"><%= @event.created_at %></h6>
+</div>
+   <div class="col-4">
+  </div>
+</div>

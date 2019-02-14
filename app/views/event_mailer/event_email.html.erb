@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1><%= @attendee.first_name %> participe à <%= @event.title %></h1>
+    <p>
+      Voir les infos :<%= @attendee.email %>.
+      vient de participer a votre Event.
+    </p>
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    </p>
+    <p> À très vite sur monsite.fr !
+  </body>
+</html>

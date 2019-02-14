@@ -1,0 +1,32 @@
+<div class="row justify-content-center text-center" style="margin-top: 10vh">
+<div class="col-6">
+
+<%= form_tag event_attendences_path(params[:event_id]), :method => :post do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+
+    <label class="amount">
+      <span class="lora-regular">Your reservation for the event</span><br/>
+      <h3 class="montserrat-light"><%= @event.title %></h3>
+      <hr/>
+      <span class="lora-regular">Amount to pay:</span><br/>
+      	<span class="display-1"><%= @event.price %> $</span>
+    </label>
+  </article>
+
+		  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+		          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+		          data-description="Your reservation for the event <%= @event.title %>"
+		          data-amount="<%= @stripe_price %>"
+                data-currency="usd"
+		          data-locale="auto">
+		  </script>
+
+
+<% end %>
+</div>
+</div>
